@@ -36,15 +36,11 @@ Bu projenin geliştirilmesinde aşağıdaki modern web teknolojilerinden yararla
 * **npm / yarn:** Paket yönetimi ve proje bağımlılıkları için.
 
 ---
-
-## 📂 Proje Yapısı (Örnek)
-Elbette. Projenizin React tabanlı bir simülasyon oyunu olduğunu göz önünde bulundurarak, standart ve organize bir proje yapısı şablonu aşağıdadır.
-
-Bu yapı, "Yankı 10" projeniz için bileşenleri (components), sayfaları (pages) ve oyun verilerini (data) net bir şekilde ayırmanızı sağlar.
-
-Aşağıdaki kodu kopyalayıp README.md dosyanızdaki ilgili yere yapıştırabilirsiniz:
-
-Markdown
+ <img width="1918" height="908" alt="Ekran görüntüsü 2025-11-08 014829" src="https://github.com/user-attachments/assets/4b3644fc-b903-41ce-a9d6-d2ae5a4acf5f" />
+<img width="1892" height="906" alt="Ekran görüntüsü 2025-11-08 014853" src="https://github.com/user-attachments/assets/8c9e9eaa-33c4-4796-9660-17917f34d4c6" />
+<img width="1918" height="906" alt="Ekran görüntüsü 2025-11-08 014905" src="https://github.com/user-attachments/assets/baf4d830-8164-4b3d-af10-1b619e93b2bc" />
+<img width="1916" height="908" alt="Ekran görüntüsü 2025-11-08 014944" src="https://github.com/user-attachments/assets/61dbb8d0-0cf8-4308-b9ba-e6e95f49f62c" />
+<img width="1919" height="740" alt="Ekran görüntüsü 2025-11-08 015232" src="https://github.com/user-attachments/assets/5c17e7f9-45f7-4920-8cce-29e5a24e9226" />
 
 ## 📂 Proje Yapısı
  
