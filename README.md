@@ -45,4 +45,4 @@ Bu projenin geliştirilmesinde aşağıdaki modern web teknolojilerinden yararla
 ## 📂 Proje Yapısı
  
 
-Proje, modern bir **Vite + React** mimarisi kullanılarak geliştirilmiştir. Dosya yapısı, bileşenleri, oyun verilerini ve statik varlıkları net bir şekilde ayırmak üzere organize edilmiştir:
+Proje, modern bir **Vite + React** mimarisi kullanılarak geliştirilmiştir. 
