@@ -73,8 +73,9 @@ Bu proje [MIT, GPL vb. - Lisans adını buraya yazın] lisansı altındadır. De
 > "Benim naçiz vücudum elbet bir gün toprak olacaktır, ancak Türkiye Cumhuriyeti ilelebet payidar kalacaktır."
 > 
 > **Mustafa Kemal Atatürk**
-> <img width="1919" height="740" alt="Ekran görüntüsü 2025-11-08 015232" src="https://github.com/user-attachments/assets/f22e616c-6eac-4e92-b9da-fb65572901e1" />
-<img width="1916" height="908" alt="Ekran görüntüsü 2025-11-08 014944" src="https://github.com/user-attachments/assets/73dc62c3-7415-48df-9418-539e5f1e1467" />
-<img width="1918" height="906" alt="Ekran görüntüsü 2025-11-08 014905" src="https://github.com/user-attachments/assets/47f6b05f-9fc4-4580-ab9d-3c3d9acbb459" />
-<img width="1892" height="906" alt="Ekran görüntüsü 2025-11-08 014853" src="https://github.com/user-attachments/assets/c53c6c3c-c559-4301-a117-749c33891e54" />
-<img width="1918" height="908" alt="Ekran görüntüsü 2025-11-08 014829" src="https://github.com/user-attachments/assets/d4328d4b-94e8-492b-9108-22f26c1ed509" />
+ <img width="1918" height="908" alt="Ekran görüntüsü 2025-11-08 014829" src="https://github.com/user-attachments/assets/fd9d3006-c674-4abf-b5db-97b4b43652ed" />
+<img width="1892" height="906" alt="Ekran görüntüsü 2025-11-08 014853" src="https://github.com/user-attachments/assets/10dcf2a4-8bad-49cb-9728-5980e1315ec3" />
+<img width="1918" height="906" alt="Ekran görüntüsü 2025-11-08 014905" src="https://github.com/user-attachments/assets/62e3c575-cd78-4b81-8c84-8dddc44aa2bf" />
+<img width="1916" height="908" alt="Ekran görüntüsü 2025-11-08 014944" src="https://github.com/user-attachments/assets/db6651f5-a4e8-48ff-b712-2b5f7410d85d" />
+<img width="1919" height="740" alt="Ekran görüntüsü 2025-11-08 015232" src="https://github.com/user-attachments/assets/fdbd3446-d120-42da-ac65-93f12537273d" />
+
