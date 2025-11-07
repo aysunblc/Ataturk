@@ -26,7 +26,7 @@ export const GAME_EVENTS = {
         // --- EVENT 2 (Mevcut Olayın) ---
         {
             id: 'inonu-2-birinci-inonu',
-            introVideoFile: 'olsun.mp4', 
+            introVideoFile: 'new.mp4', 
             
             
             eventContext: '“Lozan Antlaşması müzakerelerinde karar senin. Ne yaparsın?”',
