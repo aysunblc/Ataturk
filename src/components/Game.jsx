@@ -180,12 +180,19 @@ const Game = ({ selectedCharacter, onGameEnd, onRecordResult, onSaveUserAnswer, 
             console.warn("Zaten bir seçim yapılmış, ikinci tıklama engellendi.");
             return;
         }
+       // ... handleOptionClick fonksiyonunun başı ...
         
         // Anlık Geri Bildirim
-        const feedbackText = option.isCorrect ? 'DOĞRU KARAR! ✓' : 'YANLIŞ KARAR ✗';
-        const feedbackColor = option.isCorrect ? '#98FF98' : '#FF9999';
-        setLocalFeedback({ text: feedbackText, color: feedbackColor });
+        // GÜNCELLEME: Sadece 3. soru (index 2) DEĞİLSE geri bildirimi göster
+        if (currentEventIndex !== 2) {
+            const feedbackText = option.isCorrect ? 'DOĞRU KARAR! ✓' : 'YANLIŞ KARAR ✗';
+            const feedbackColor = option.isCorrect ? '#98FF98' : '#FF9999';
+            setLocalFeedback({ text: feedbackText, color: feedbackColor });
+        }
 
+        setLocalSelectedSide(side); // Hangi tarafın seçildiğini işaretle
+// ...
+        setLocalSelectedSide(side); // Hangi tarafın seçildiğini işaretle
         setLocalSelectedSide(side); // Hangi tarafın seçildiğini işaretle
         setSelectedOption(option); // Seçilen opsiyonu kaydet
         
@@ -374,8 +381,6 @@ const Game = ({ selectedCharacter, onGameEnd, onRecordResult, onSaveUserAnswer, 
                         minHeight: '200px',
                         padding: '2rem',
                         background: `linear-gradient(${themeColor}, ${themeColor})`,
-                        backdropFilter: 'blur(var(--glass-blur))',
-                        WebkitBackdropFilter: 'blur(var(--glass-blur))',
                         border: '2px solid rgba(50, 50, 50, 0.5)',
                         borderRadius: 'var(--radius-md)',
                         cursor: localSelectedSide ? 'default' : 'pointer',

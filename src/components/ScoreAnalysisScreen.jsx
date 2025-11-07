@@ -369,7 +369,10 @@ const ScoreAnalysisScreen = ({ finalScore, userAnswers, onGameEnd, onRestart, ge
             left: 0,
             width: '100vw',
             height: '100vh',
-            background: 'linear-gradient(rgba(18, 18, 18, 0.95), rgba(18, 18, 18, 0.95))',
+            backgroundImage: 'url(/score-background.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
             zIndex: 3000,
             display: 'flex',
             justifyContent: 'center',
@@ -379,10 +382,24 @@ const ScoreAnalysisScreen = ({ finalScore, userAnswers, onGameEnd, onRestart, ge
             overflowY: 'auto',
             animation: 'fadeIn 0.5s ease-out'
         }}>
+            {/* Blur overlay */}
+            <div style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                backdropFilter: 'blur(10px)',
+                WebkitBackdropFilter: 'blur(10px)',
+                background: 'rgba(18, 18, 18, 0.75)',
+                zIndex: -1
+            }} />
             <div style={{
                 maxWidth: '1600px',
                 width: '100%',
-                padding: 'var(--spacing-lg) 0'
+                padding: 'var(--spacing-lg) 0',
+                position: 'relative',
+                zIndex: 1
             }}>
                 <ScoreCard 
                     finalScore={finalScore} 
