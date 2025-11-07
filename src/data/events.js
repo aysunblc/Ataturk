@@ -3,8 +3,8 @@ export const GAME_EVENTS = {
         // --- EVENT 1: NORMAL QUIZ SORUSU ---
         {
             id: 'inonu-1-anadolu-gecis',
-            finalVideo: 'final-inonu.mp4',
-            introVideoFile: 'new.mp4', 
+   
+            introVideoFile: 'ilkintro.mp4', 
             questionType: 'quiz', // Normal quiz sorusu
            
             eventTitle: 'Milli Mücadelenin Başlangıcı: Anadoluya Geçiş Kararı',
@@ -64,7 +64,7 @@ export const GAME_EVENTS = {
                 },
             ],
             correctOutcomeVideo: 'final.mp4',
-            incorrectOutcomeVideo: 'final.mp4',
+            incorrectOutcomeVideo: 'soguk.mp4',
         },
     ],
     
