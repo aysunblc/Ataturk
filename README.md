@@ -47,9 +47,6 @@ Aşağıdaki kodu kopyalayıp README.md dosyanızdaki ilgili yere yapıştırabi
 Markdown
 
 ## 📂 Proje Yapısı
+ 
 
-Proje, modern React uygulamaları için standart hale gelmiş, bileşen tabanlı bir dosya yapısını takip etmektedir. Bu yapı, kodun modülerliğini ve bakım kolaylığını artırır.
-
-/ ├── public/ # Statik dosyaların (index.html, favicon) bulunduğu yer │ ├── index.html │ └── favicon.ico │ ├── src/ # Ana React uygulama kodunun tamamı │ │ │ ├── assets/ # Tüm statik varlıklar │ │ ├── images/ # Ekran görüntüleri, logolar, arayüz grafikleri │ │ ├── photos-gallery/ # Simülasyonda kullanılan tarihi fotoğraflar │ │ └── styles/ # Global CSS dosyaları (App.css, index.css) │ │ │ ├── components/ # Tekrar kullanılabilir küçük React bileşenleri │ │ ├── Button.js # Özel buton bileşeni │ │ ├── Navbar.js # Ana navigasyon çubuğu │ │ ├── DecisionBox.js # Karar anları için diyalog kutusu │ │ └── CharacterCard.js # Silah arkadaşları için karakter kartı │ │ │ ├── data/ # Statik oyun verileri │ │ ├── gameScenarios.json # Oyun senaryoları ve diyaloglar │ │ ├── timelineEvents.json # Tarihi olayların verisi │ │ └── characters.json # Karakter biyografileri │ │ │ ├── pages/ # Ana sayfa görünümleri (View'ler) │ │ ├── Home.js # Ana karşılama sayfası │ │ ├── Simulation.js # Ana oyun/simülasyon ekranı │ │ ├── Gallery.js # Kilidi açılan fotoğrafların galerisi │ │ └── About.js # Proje hakkında sayfası │ │ │ ├── App.js # Ana uygulama bileşeni (Routing burada yapılır) │ ├── index.js # Uygulamanın DOM'a bağlandığı giriş noktası │ └── index.css # Ana global stil dosyası │ ├── .gitignore # Git tarafından takip edilmeyecek dosyalar (node_modules vb.) ├── package.json # Proje bağımlılıkları ve scriptleri └── README.md # Proje tanıtım dosyası (Şu an düzenlediğiniz dosya)
-
-Bu yapı, projenizi geliştirmeye devam ederken yeni özellikler eklemenizi çok kolaylaştıracaktır.
+Proje, modern bir **Vite + React** mimarisi kullanılarak geliştirilmiştir. Dosya yapısı, bileşenleri, oyun verilerini ve statik varlıkları net bir şekilde ayırmak üzere organize edilmiştir:
