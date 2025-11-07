@@ -1,0 +1,843 @@
+/* GENEL STİLLER */
+:root {
+  /* Existing color variables */
+  --primary-red: #B70F0A;
+  --primary-gold: #FFD700;
+  --dark-bg: #121212;
+  --text-light: #FFFFFF;
+  --text-dark: #E0E0E0;
+  
+  /* Glassmorphism variables */
+  --glass-bg: rgba(18, 18, 18, 0.75);
+  --glass-border: rgba(255, 215, 0, 0.2);
+  --glass-blur: 12px;
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+  
+  /* Spacing system */
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 32px;
+  --spacing-xl: 48px;
+  
+  /* Border radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--dark-bg);
+  color: var(--text-light);
+  line-height: 1.6;
+  /* Ensure proper scrolling behavior */
+  overflow-x: hidden;
+  overflow-y: auto;
+  /* Prevent text blur from transforms */
+  -webkit-font-smoothing: subpixel-antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.app-main-content {
+  max-width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: center;
+  /* Ensure content is always visible */
+  position: relative;
+}
+
+/* GENEL BUTON */
+.start-button {
+  background-color: var(--primary-red);
+  color: var(--text-light);
+  border: none;
+  border-radius: 8px;
+  padding: 15px 35px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(183, 15, 10, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.start-button:hover {
+  background-color: #E01A10;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(183, 15, 10, 0.6);
+}
+
+.start-button:active {
+  transform: translateY(1px);
+}
+
+/* Accessibility: Focus indicators for start button (Task 11) */
+.start-button:focus {
+  outline: 3px solid var(--primary-gold);
+  outline-offset: 4px;
+  box-shadow: 
+    0 0 0 4px rgba(255, 215, 0, 0.3),
+    0 6px 20px rgba(183, 15, 10, 0.6);
+}
+
+.start-button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.start-button:focus-visible {
+  outline: 3px solid var(--primary-gold);
+  outline-offset: 4px;
+  box-shadow: 
+    0 0 0 4px rgba(255, 215, 0, 0.3),
+    0 6px 20px rgba(183, 15, 10, 0.6);
+}
+
+/* 1. WELCOME SCREEN (GÜNCELLENDİ) */
+.welcome-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box; /* Padding'in yüksekliği etkilememesi için */
+  min-height: 100vh;
+  /* ARKA PLAN RESMİ VE GRADYAN EKLENDİ */
+  background-image:
+    linear-gradient(rgba(18, 18, 18, 0.85), rgba(18, 18, 18, 0.85)),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Atat%C3%BCrk_TBMM%27den_%C3%A7%C4%B1karken.jpg/640px-Atat%C3%BCrk_TBMM%27den_%C3%A7%C4%B1karken.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed; /* Kaydırma sırasında resmin sabit kalması için */
+  /* Ensure proper scrolling */
+  overflow-y: auto;
+  animation: fadeIn 1s ease-out;
+}
+
+/* 1. YÖNTEM: EKLENEN BASİT RESİM İÇİN STİL */
+.welcome-image {
+  max-width: 100%;
+  width: 700px; /* Resmin genişliğini sınırlar */
+  border-radius: 10px;
+  opacity: 0.8;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+  border: 2px solid var(--primary-gold);
+}
+
+.welcome-content {
+  max-width: 800px;
+  /* İçeriğin resimden ayrışması için hafif bir arka plan */
+  background: rgba(0, 0, 0, 0.3);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.welcome-title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: var(--primary-red);
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px rgba(183, 15, 10, 0.5);
+}
+
+.welcome-subtitle {
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--text-light);
+  margin-bottom: 30px;
+}
+
+.welcome-text {
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+
+/* 2. CHARACTER SELECTION (Stiller korundu) */
+
+/* Background image system for CharacterSelection screen */
+.game-wrapper {
+  position: relative;
+  /* Ensure proper scrolling */
+  overflow-y: auto;
+}
+
+.game-wrapper::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/Gemini_Generated_Image_dr5rdcdr5rdcdr5r.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  filter: blur(8px);
+  z-index: -2;
+  /* Prevent blur from affecting text */
+  will-change: auto;
+}
+
+.game-wrapper::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(18, 18, 18, 0.7), rgba(18, 18, 18, 0.85));
+  z-index: -1;
+}
+
+.character-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.character-card {
+  height: 65vh;
+  min-height: 500px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  border: 2px solid var(--glass-border);
+  transition: transform var(--transition-normal), 
+              box-shadow var(--transition-normal), 
+              border-color var(--transition-normal),
+              filter var(--transition-normal);
+  box-shadow: var(--glass-shadow);
+  filter: brightness(1);
+}
+
+.character-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9);
+  border-color: var(--primary-gold);
+  filter: brightness(1.15);
+}
+
+/* Accessibility: Focus indicators for character cards (Task 11) */
+.character-card:focus {
+  outline: 3px solid var(--primary-gold);
+  outline-offset: 4px;
+  box-shadow: 
+    0 0 0 4px rgba(255, 215, 0, 0.3),
+    0 15px 40px rgba(0, 0, 0, 0.9);
+  transform: scale(1.03);
+  border-color: var(--primary-gold);
+  filter: brightness(1.15);
+}
+
+.character-card:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.character-card:focus-visible {
+  outline: 3px solid var(--primary-gold);
+  outline-offset: 4px;
+  box-shadow: 
+    0 0 0 4px rgba(255, 215, 0, 0.3),
+    0 15px 40px rgba(0, 0, 0, 0.9);
+}
+
+.character-card.is-selected {
+  transform: scale(1.05);
+  border: 4px solid var(--primary-gold);
+  box-shadow: 0 0 50px var(--primary-gold);
+}
+
+.card-text-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  box-shadow: var(--glass-shadow);
+  color: white;
+  padding: 100px 25px 25px 25px;
+  text-align: left;
+  transition: background var(--transition-normal),
+              backdrop-filter var(--transition-normal),
+              border-color var(--transition-normal);
+}
+
+.character-card:hover .card-text-overlay {
+  background: rgba(18, 18, 18, 0.85);
+  border-color: rgba(255, 215, 0, 0.4);
+}
+
+.character-name {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0 0 5px 0;
+  color: var(--text-light);
+}
+
+.character-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary-gold);
+  margin: 0 0 15px 0;
+}
+
+.card-description {
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+/* 3. GAME SCREEN (Stiller korundu) */
+.game-wrapper {
+  padding: 20px;
+  box-sizing: border-box;
+  /* Ensure proper scrolling for game content */
+  overflow-y: auto;
+}
+
+/* Ensure game content is above background */
+#game-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  margin: 20px auto;
+  padding: var(--spacing-xl);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--glass-shadow);
+  
+  /* 3D border and shadow effects for content boxes (Requirement 2.4) */
+  border: 2px solid rgba(255, 215, 0, 0.25);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.37),
+    0 15px 45px rgba(0, 0, 0, 0.25),
+    inset 0 2px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+  
+  /* GPU acceleration optimized - Prevent text blur */
+  transform: translateZ(0);
+  -webkit-font-smoothing: subpixel-antialiased;
+  backface-visibility: hidden;
+}
+
+.split-screen-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+.split-side {
+  position: relative;
+  z-index: 5;
+}
+
+.event-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-light);
+  margin-bottom: var(--spacing-md);
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  
+  /* 3D text-shadow effect (Requirement 2.2) */
+  text-shadow: 
+    2px 2px 0px rgba(0, 0, 0, 0.3),
+    4px 4px 0px rgba(0, 0, 0, 0.2),
+    6px 6px 0px rgba(0, 0, 0, 0.1),
+    8px 8px 12px rgba(0, 0, 0, 0.4);
+  
+  /* Prevent text blur from transforms */
+  transform: translateZ(0);
+  -webkit-font-smoothing: subpixel-antialiased;
+  backface-visibility: hidden;
+}
+
+.question-text {
+  font-size: 1.2rem;
+  color: var(--text-dark);
+  max-width: 900px;
+  margin: 0 auto var(--spacing-lg) auto;
+  line-height: 1.7;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  
+  /* 3D border and shadow effects for content boxes (Requirement 2.4) */
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.3),
+    0 8px 24px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  
+  /* Prevent text blur from transforms */
+  transform: translateZ(0);
+  -webkit-font-smoothing: subpixel-antialiased;
+  backface-visibility: hidden;
+}
+
+
+/* 3D BUTTON EFFECTS (Requirements 2.1, 2.3, 2.4, 2.5) */
+.option-button-3d {
+  /* 3D transform and box-shadow effects (Requirement 2.1) */
+  transform: perspective(1000px) translateZ(20px);
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.3),
+    0 1px 8px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+  
+  /* Smooth transition for hover effects (Requirement 2.3) */
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  
+  /* GPU acceleration optimized (Task 12) - Only use will-change on hover/interaction */
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+/* Only apply will-change during interaction for better performance (Task 12) */
+.option-button-3d:hover:not(:disabled),
+.option-button-3d:focus:not(:disabled) {
+  will-change: transform, box-shadow;
+}
+
+.option-button-3d:hover:not(:disabled) {
+  /* Enhanced 3D effect on hover (Requirement 2.3) */
+  transform: perspective(1000px) translateY(-8px) translateZ(30px) scale(1.05);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 5px 15px rgba(0, 0, 0, 0.3),
+    inset 0 2px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.25);
+}
+
+.option-button-3d:active:not(:disabled) {
+  /* Pressed effect */
+  transform: perspective(1000px) translateY(-2px) translateZ(10px) scale(0.98);
+  box-shadow: 
+    0 5px 15px rgba(0, 0, 0, 0.3),
+    inset 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* 3D effect for outcome overlay box (Requirement 2.4) */
+.outcome-overlay-box-3d {
+  transform: perspective(1000px) translateZ(40px);
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 10px 30px rgba(0, 0, 0, 0.3),
+    inset 0 2px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+  
+  /* GPU acceleration optimized (Task 12) */
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+/* Comprehensive reduced motion support (Task 12) */
+@media (prefers-reduced-motion: reduce) {
+  /* Disable all animations and transitions */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  /* Remove 3D transforms */
+  .option-button-3d,
+  .option-button-3d:hover,
+  .option-button-3d:active,
+  .option-button-3d:focus,
+  .outcome-overlay-box-3d,
+  #game-container,
+  .event-title,
+  .question-text {
+    transform: none !important;
+  }
+  
+  /* Simplify shadows for better performance */
+  .option-button-3d {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+  }
+  
+  .option-button-3d:hover:not(:disabled) {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+  }
+  
+  /* Remove text shadows */
+  .event-title,
+  .welcome-title {
+    text-shadow: none !important;
+  }
+  
+  /* Disable will-change */
+  * {
+    will-change: auto !important;
+  }
+}
+
+/* KEYFRAMES */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* RESPONSIVE - Mobile Optimization (Task 10) */
+@media (max-width: 768px) {
+  :root {
+    /* Reduce blur intensity for mobile performance */
+    --glass-blur: 8px;
+    
+    /* Adjust spacing values for smaller screens */
+    --spacing-xs: 6px;
+    --spacing-sm: 12px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+  }
+  
+  /* Reduce 3D effects on mobile for better performance (Task 10) */
+  .option-button-3d {
+    transform: perspective(800px) translateZ(10px);
+    box-shadow: 
+      0 5px 15px rgba(0, 0, 0, 0.3),
+      0 1px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Touch event'leri için hover yerine active state kullan (Task 10) */
+  .option-button-3d:hover:not(:disabled) {
+    /* Hover efektini mobile'da devre dışı bırak */
+    transform: perspective(800px) translateZ(10px);
+    box-shadow: 
+      0 5px 15px rgba(0, 0, 0, 0.3),
+      0 1px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Active state ile touch feedback sağla (Task 10) */
+  .option-button-3d:active:not(:disabled) {
+    transform: perspective(800px) translateY(-4px) translateZ(15px) scale(1.02);
+    box-shadow: 
+      0 10px 20px rgba(0, 0, 0, 0.4),
+      0 3px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .outcome-overlay-box-3d {
+    transform: perspective(800px) translateZ(20px);
+    box-shadow: 
+      0 10px 30px rgba(0, 0, 0, 0.5),
+      0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Reduce text-shadow complexity on mobile */
+  .event-title {
+    text-shadow: 
+      2px 2px 0px rgba(0, 0, 0, 0.3),
+      4px 4px 0px rgba(0, 0, 0, 0.2),
+      6px 6px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .welcome-title { font-size: 2.5rem; }
+  .welcome-subtitle { font-size: 1.3rem; }
+  .event-title { font-size: 1.8rem; }
+  .question-text { font-size: 1rem; }
+
+  .character-cards-container {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    gap: 30px; /* Reduced gap for mobile */
+  }
+  
+  .character-card {
+    height: 60vh;
+    min-height: 450px; /* Slightly reduced for mobile */
+  }
+  
+  /* Change background-attachment from fixed to scroll on mobile (Requirement 5.3) */
+  .welcome-screen {
+    background-attachment: scroll;
+  }
+  
+  /* Optimize background attachment for mobile (Requirement 5.3) */
+  .game-wrapper::before {
+    background-attachment: scroll;
+    filter: blur(6px); /* Reduced blur for better mobile performance */
+  }
+  
+  /* Ensure glassmorphism works on mobile browsers (Requirements 5.4, 5.5) */
+  .card-text-overlay,
+  #game-container,
+  .event-title,
+  .question-text,
+  .content-overlay {
+    /* Reduce blur for better mobile performance */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  
+  /* Improve text readability on small screens (Requirement 5.5) */
+  .card-text-overlay {
+    padding: 80px 20px 20px 20px;
+  }
+  
+  .character-name {
+    font-size: 1.7rem;
+  }
+  
+  .character-title {
+    font-size: 1rem;
+  }
+  
+  .card-description {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  
+  /* Game container mobile optimizations */
+  #game-container {
+    padding: var(--spacing-lg);
+    margin: 10px auto;
+  }
+  
+  .event-title,
+  .question-text {
+    padding: var(--spacing-sm) var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+  }
+}
+
+/* FALLBACK SUPPORT FOR BROWSERS WITHOUT BACKDROP-FILTER */
+@supports not (backdrop-filter: blur(10px)) {
+  .glass-card,
+  .character-card,
+  .split-side,
+  .game-container,
+  .header-box,
+  .content-overlay {
+    background: rgba(18, 18, 18, 0.9);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+/* ====================================================== */
+/* 4. FİNAL VİDEO EKRANI (Akışınızdaki 'final (video)' için) */
+/* ====================================================== */
+
+/* 'video-ekran' DEĞİL, 'video-screen' OLMALI (JS ile eşleşmesi için) */
+.video-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000;
+  padding: 20px;
+  box-sizing: border-box;
+  animation: fadeIn 1s ease-out;
+}
+
+.video-player-container {
+  position: relative;
+  width: 90vw;
+  max-width: 1200px;
+  box-shadow: 0 0 50px rgba(183, 15, 10, 0.4);
+  border: 2px solid var(--primary-gold);
+  border-radius: 10px;
+  overflow: hidden; 
+}
+
+.video-player-container video {
+  width: 100%;
+  display: block;
+}
+
+.proceed-to-analysis-button {
+  background-color: var(--primary-gold);
+  color: var(--dark-bg);
+  border: none;
+  border-radius: 8px;
+  padding: 15px 35px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 40px;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+}
+
+.proceed-to-analysis-button:hover {
+  background-color: #FFFFFF;
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+  transform: translateY(-3px);
+}
+
+/* Accessibility: Focus indicators for proceed button (Task 11) */
+.proceed-to-analysis-button:focus {
+  outline: 3px solid var(--primary-red);
+  outline-offset: 4px;
+  box-shadow: 
+    0 0 0 4px rgba(183, 15, 10, 0.3),
+    0 6px 20px rgba(255, 215, 0, 0.5);
+}
+
+.proceed-to-analysis-button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.proceed-to-analysis-button:focus-visible {
+  outline: 3px solid var(--primary-red);
+  outline-offset: 4px;
+  box-shadow: 
+    0 0 0 4px rgba(183, 15, 10, 0.3),
+    0 6px 20px rgba(255, 215, 0, 0.5);
+}
+
+
+/* ====================================================== */
+/* 5. ANALİZ EKRANI (Akışınızdaki 'analiz ekranı' için) */
+/* ====================================================== */
+
+.analysis-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  background-image:
+    linear-gradient(rgba(18, 18, 18, 0.9), rgba(18, 18, 18, 0.9)),
+    url('https://i.pinimg.com/originals/8a/a4/18/8aa418e319504f762f0a8e104b68e219.jpg'); /* Farklı bir arka plan */
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  /* Ensure proper scrolling */
+  overflow-y: auto;
+  animation: fadeIn 1.5s ease-out;
+}
+
+.analysis-content {
+  max-width: 900px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 40px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.analysis-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--primary-red);
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px rgba(183, 15, 10, 0.5);
+}
+
+.analysis-summary-text {
+  font-size: 1.3rem;
+  color: var(--text-light);
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+
+.analysis-detail-text::-webkit-scrollbar {
+  width: 6px;
+}
+.analysis-detail-text::-webkit-scrollbar-thumb {
+  background-color: var(--primary-gold);
+  border-radius: 10px;
+}
+
+.analysis-buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.home-button {
+  background-color: transparent;
+  color: var(--primary-gold);
+  border: 2px solid var(--primary-gold);
+  border-radius: 8px;
+  padding: 13px 35px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.home-button:hover {
+  background-color: var(--primary-gold);
+  color: var(--dark-bg);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+}
+
+/* Accessibility: Focus indicators for home button (Task 11) */
+.home-button:focus {
+  outline: 3px solid var(--primary-gold);
+  outline-offset: 4px;
+  box-shadow: 
+    0 0 0 4px rgba(255, 215, 0, 0.3),
+    0 6px 20px rgba(255, 215, 0, 0.4);
+}
+
+.home-button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.home-button:focus-visible {
+  outline: 3px solid var(--primary-gold);
+  outline-offset: 4px;
+  box-shadow: 
+    0 0 0 4px rgba(255, 215, 0, 0.3),
+    0 6px 20px rgba(255, 215, 0, 0.4);
+}
