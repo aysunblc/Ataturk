@@ -1,42 +1,22 @@
 # 🇹🇷 Atatürk Projesi: Yankı 19 (Simülasyon Oyunu)
 
-![Atatürk Silüeti](https://upload.wikimedia.org/wikipedia/commons/a/a8/Ataturk_silhouette.png)
-
-Bu proje, Türkiye Cumhuriyeti'nin kurucusu **Mustafa Kemal Atatürk**'ü ve silah arkadaşlarını konu alan, React tabanlı interaktif bir web projesidir. Proje, [Buraya projenizin temel amacını 1-2 cümleyle yazın. Örn: "Atatürk'ün hayatını ve devrimlerini interaktif bir deneyimle sunmayı amaçlamaktadır."]
-
+ 
+Proje, "Yankı 10" adlı web tabanlı bir simülasyon oyunu olarak tasarlanmıştır. Amacı, kullanıcılara Atatürk ve silah arkadaşlarının Kurtuluş Savaşı'ndaki mücadelesini interaktif bir anlatımla sunmak ve o dönemin zorlu kararlarına tanıklık etmelerini sağlamaktır.
 ---
 
-## 🔗 Canlı Demo
-
-Projeyi canlı olarak deneyimlemek için aşağıdaki linke tıklayabilirsiniz:
-
-**[➡️ Buraya Tıklayarak Canlı Demoyu Görün](https://PROJE-LINKINIZ.com)**
-
-*(Eğer henüz yayınlamadıysanız, Vercel, Netlify veya GitHub Pages ile kolayca yayınlayıp linki buraya ekleyebilirsiniz.)*
-
----
+ 
 
 ## 🌟 Öne Çıkan Özellikler
 
-* **İnteraktif Zaman Çizelgesi:** Atatürk'ün hayatındaki önemli olayların kronolojik takibi.
-* **Devrimler Bölümü:** İnkılapların detaylı açıklamaları ve modern Türkiye'ye etkileri.
-* **Simülasyon/Oyun Mekaniği:** [Oyununuzdaki ana mekaniği açıklayın. Örn: "Kullanıcıların belirli tarihi kararlar alabildiği..."]
-* **Dinamik Galeri:** Yüksek çözünürlüklü tarihi fotoğraflar ve videolar.
-* **Duyarlı Tasarım (Responsive):** Mobil cihazlar ve tabletlerle tam uyumluluk.
-
----
+* **Senaryo Tabanlı Simülasyon:** Kullanıcılar, Kurtuluş Savaşı'nın kilit cephelerinde ve kongrelerinde Atatürk ile silah arkadaşlarının karşılaştığı zorlukları temel alan interaktif senaryoları deneyimler.
+* **Tarihi Karar Anları:** Oyun, (Sivas Kongresi, cephe stratejileri vb. gibi) tarihi olaylara dayalı kritik anlar sunar. Bu anlarda verilen kararlar, hikayenin ilerleyişini ve tarihi sonuçları interaktif olarak gösterir.
+* **Görev Odaklı İlerleme:** Proje, kronolojik bir "zaman çizelgesi" yerine, oyuncuların tamamlaması gereken görevler (misyonlar) üzerinden ilerler.
+* **Kilitlenebilir Arşiv (Dinamik Galeri):** Oyunda belirli görevler tamamlandıkça veya önemli anlara ulaşıldıkça açılan, döneme ait yüksek çözünürlüklü fotoğraflar, belgeler ve karakter biyografileri.
+* **Duyarlı Tasarım (Responsive):** React tabanlı arayüz, hem masaüstü tarayıcılarda hem de mobil cihazlarda kusursuz bir oyun deneyimi sunar.
 
 ## 📸 Ekran Görüntüleri ve Proje Demosu
 
-### Ekran Görüntüleri
-
-![Ana Sayfa Görünümü](./img/ana-sayfa.png)
-_Projenin ana sayfa tasarımı._
-
-![Galeri Sayfası](./img/galeri.png)
-_Fotoğraf galerisi bölümü._
-
-### Proje Demosu (GIF)
+ 
 
 Projenin nasıl çalıştığını gösteren kısa bir animasyon:
 
@@ -58,5 +38,18 @@ Bu projenin geliştirilmesinde aşağıdaki modern web teknolojilerinden yararla
 ---
 
 ## 📂 Proje Yapısı (Örnek)
+Elbette. Projenizin React tabanlı bir simülasyon oyunu olduğunu göz önünde bulundurarak, standart ve organize bir proje yapısı şablonu aşağıdadır.
 
-Proje, standart bir React dosya yapısını takip etmektedir:
+Bu yapı, "Yankı 10" projeniz için bileşenleri (components), sayfaları (pages) ve oyun verilerini (data) net bir şekilde ayırmanızı sağlar.
+
+Aşağıdaki kodu kopyalayıp README.md dosyanızdaki ilgili yere yapıştırabilirsiniz:
+
+Markdown
+
+## 📂 Proje Yapısı
+
+Proje, modern React uygulamaları için standart hale gelmiş, bileşen tabanlı bir dosya yapısını takip etmektedir. Bu yapı, kodun modülerliğini ve bakım kolaylığını artırır.
+
+/ ├── public/ # Statik dosyaların (index.html, favicon) bulunduğu yer │ ├── index.html │ └── favicon.ico │ ├── src/ # Ana React uygulama kodunun tamamı │ │ │ ├── assets/ # Tüm statik varlıklar │ │ ├── images/ # Ekran görüntüleri, logolar, arayüz grafikleri │ │ ├── photos-gallery/ # Simülasyonda kullanılan tarihi fotoğraflar │ │ └── styles/ # Global CSS dosyaları (App.css, index.css) │ │ │ ├── components/ # Tekrar kullanılabilir küçük React bileşenleri │ │ ├── Button.js # Özel buton bileşeni │ │ ├── Navbar.js # Ana navigasyon çubuğu │ │ ├── DecisionBox.js # Karar anları için diyalog kutusu │ │ └── CharacterCard.js # Silah arkadaşları için karakter kartı │ │ │ ├── data/ # Statik oyun verileri │ │ ├── gameScenarios.json # Oyun senaryoları ve diyaloglar │ │ ├── timelineEvents.json # Tarihi olayların verisi │ │ └── characters.json # Karakter biyografileri │ │ │ ├── pages/ # Ana sayfa görünümleri (View'ler) │ │ ├── Home.js # Ana karşılama sayfası │ │ ├── Simulation.js # Ana oyun/simülasyon ekranı │ │ ├── Gallery.js # Kilidi açılan fotoğrafların galerisi │ │ └── About.js # Proje hakkında sayfası │ │ │ ├── App.js # Ana uygulama bileşeni (Routing burada yapılır) │ ├── index.js # Uygulamanın DOM'a bağlandığı giriş noktası │ └── index.css # Ana global stil dosyası │ ├── .gitignore # Git tarafından takip edilmeyecek dosyalar (node_modules vb.) ├── package.json # Proje bağımlılıkları ve scriptleri └── README.md # Proje tanıtım dosyası (Şu an düzenlediğiniz dosya)
+
+Bu yapı, projenizi geliştirmeye devam ederken yeni özellikler eklemenizi çok kolaylaştıracaktır.
