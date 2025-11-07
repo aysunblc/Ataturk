@@ -2,6 +2,16 @@ import { useState, useEffect, useRef } from 'react';
 import { GAME_EVENTS } from '../data/events';
 
 const IntroVideoPlayer = ({ videoSrc, onEnded, onError }) => {
+    const videoRef = useRef(null);
+    const [isMuted, setIsMuted] = useState(false);
+
+    const toggleSound = () => {
+        if (videoRef.current) {
+            videoRef.current.muted = !videoRef.current.muted;
+            setIsMuted(videoRef.current.muted);
+        }
+    };
+
     return (
         <div style={{
             position: 'fixed',
@@ -17,9 +27,9 @@ const IntroVideoPlayer = ({ videoSrc, onEnded, onError }) => {
             animation: 'fadeIn 0.5s ease-out'
         }}>
             <video
+                ref={videoRef}
                 src={videoSrc}
                 autoPlay
-                muted
                 playsInline
                 onEnded={onEnded}
                 onError={onError}
@@ -32,6 +42,117 @@ const IntroVideoPlayer = ({ videoSrc, onEnded, onError }) => {
             >
                 Giriş videosu yükleniyor...
             </video>
+            
+            <button
+                onClick={toggleSound}
+                aria-label={isMuted ? 'Sesi aç' : 'Sesi kapat'}
+                style={{
+                    position: 'absolute',
+                    bottom: '30px',
+                    right: '30px',
+                    background: 'rgba(0, 0, 0, 0.7)',
+                    border: '2px solid rgba(255, 255, 255, 0.3)',
+                    borderRadius: '50%',
+                    width: '60px',
+                    height: '60px',
+                    color: 'white',
+                    fontSize: '24px',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    zIndex: 2001,
+                    transition: 'all 0.3s ease'
+                }}
+                onMouseEnter={(e) => {
+                    e.currentTarget.style.background = 'rgba(255, 215, 0, 0.8)';
+                    e.currentTarget.style.transform = 'scale(1.1)';
+                }}
+                onMouseLeave={(e) => {
+                    e.currentTarget.style.background = 'rgba(0, 0, 0, 0.7)';
+                    e.currentTarget.style.transform = 'scale(1)';
+                }}
+            >
+                {isMuted ? '🔇' : '🔊'}
+            </button>
+        </div>
+    );
+};
+
+const OutcomeVideoPlayer = ({ videoSrc, videoKey, videoFinished, onEnded, onError }) => {
+    const videoRef = useRef(null);
+    const [isMuted, setIsMuted] = useState(false);
+
+    const toggleSound = () => {
+        if (videoRef.current) {
+            videoRef.current.muted = !videoRef.current.muted;
+            setIsMuted(videoRef.current.muted);
+        }
+    };
+
+    return (
+        <div style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100vw',
+            height: '100vh',
+            zIndex: 1998,
+            background: '#000',
+            animation: 'fadeIn 0.5s'
+        }}>
+            <video
+                ref={videoRef}
+                autoPlay
+                playsInline
+                src={videoSrc}
+                key={videoKey}
+                onEnded={onEnded}
+                onError={onError}
+                aria-label="Seçim sonucu videosu"
+                style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'contain',
+                    filter: videoFinished ? 'brightness(0.5)' : 'brightness(1)',
+                    transition: 'filter 1s ease'
+                }}
+            >
+                Video yüklenemedi.
+            </video>
+            
+            <button
+                onClick={toggleSound}
+                aria-label={isMuted ? 'Sesi aç' : 'Sesi kapat'}
+                style={{
+                    position: 'absolute',
+                    bottom: '30px',
+                    right: '30px',
+                    background: 'rgba(0, 0, 0, 0.7)',
+                    border: '2px solid rgba(255, 255, 255, 0.3)',
+                    borderRadius: '50%',
+                    width: '60px',
+                    height: '60px',
+                    color: 'white',
+                    fontSize: '24px',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    zIndex: 1999,
+                    transition: 'all 0.3s ease'
+                }}
+                onMouseEnter={(e) => {
+                    e.currentTarget.style.background = 'rgba(255, 215, 0, 0.8)';
+                    e.currentTarget.style.transform = 'scale(1.1)';
+                }}
+                onMouseLeave={(e) => {
+                    e.currentTarget.style.background = 'rgba(0, 0, 0, 0.7)';
+                    e.currentTarget.style.transform = 'scale(1)';
+                }}
+            >
+                {isMuted ? '🔇' : '🔊'}
+            </button>
         </div>
     );
 };
@@ -397,35 +518,13 @@ const Game = ({ selectedCharacter, onGameEnd, onRecordResult, onSaveUserAnswer, 
             )}
 
             {outcomeVideoSource && (
-                <div style={{
-                    position: 'fixed',
-                    top: 0,
-                    left: 0,
-                    width: '100vw',
-                    height: '100vh',
-                    zIndex: 1998,
-                    background: '#000',
-                    animation: 'fadeIn 0.5s'
-                }}>
-                    <video
-                        autoPlay
-                        playsInline
-                        src={`/videos/${outcomeVideoSource}`}
-                        key={outcomeVideoSource} 
-                        onEnded={handleVideoEnded}
-                        onError={(e) => handleVideoError(e, 'outcome')}
-                        aria-label="Seçim sonucu videosu"
-                        style={{
-                            width: '100%',
-                            height: '100%',
-                            objectFit: 'contain',
-                            filter: videoFinished ? 'brightness(0.5)' : 'brightness(1)',
-                            transition: 'filter 1s ease'
-                        }}
-                    >
-                        Video yüklenemedi.
-                    </video>
-                </div>
+                <OutcomeVideoPlayer
+                    videoSrc={`/videos/${outcomeVideoSource}`}
+                    videoKey={outcomeVideoSource}
+                    videoFinished={videoFinished}
+                    onEnded={handleVideoEnded}
+                    onError={(e) => handleVideoError(e, 'outcome')}
+                />
             )}
 
             {(!showingIntro && !localSelectedSide) && (
