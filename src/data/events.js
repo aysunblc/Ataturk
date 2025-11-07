@@ -10,7 +10,7 @@ export const GAME_EVENTS = {
             eventContext: '1  Ocak 1921. Eskişehir’in doğusunda sisli bir sabah. Yeni kurulmuş ordunun morali kırılmak üzere. Komutan olarak biliyorsun: Bu karar, sadece bugünü değil, ordunun geleceğini belirleyecek. Ne yapardın?',
             options: [
                 {
-                    text: 'Seçenek : "Birlikleri geri çek, yeniden düzenle. “Kaybettiğin bir mevziyi geri alırsın, ama dağılan bir orduyu yeniden kuramazsın.” ',
+                    text: 'Seçenek : ",Birlikleri geri çek, yeniden düzenle. “Kaybettiğin bir mevziyi geri alırsın, ama dağılan bir orduyu yeniden kuramazsın.” ',
                     isCorrect: false,
                 },
                 {

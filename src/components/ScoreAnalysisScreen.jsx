@@ -76,7 +76,7 @@ const ScoreCard = ({ finalScore, getFeedbackMessage }) => {
             <div className="score-details" role="group" aria-label="Skor detayları" style={{
                 display: 'flex',
                 justifyContent: 'center',
-                gap: 'var(--spacing-xl)',
+                gap: 'clamp(var(--spacing-lg), 5vw, var(--spacing-xl))',
                 marginBottom: 'var(--spacing-lg)',
                 flexWrap: 'wrap'
             }}>
@@ -169,9 +169,10 @@ const AnswerReview = ({ userAnswers }) => {
             </h3>
             
             <div role="list" aria-label="Cevap listesi" style={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: 'var(--spacing-sm)'
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(500px, 1fr))',
+                gap: 'var(--spacing-md)',
+                alignItems: 'start'
             }}>
                 {userAnswers.map((answer, index) => (
                     <div
@@ -259,7 +260,7 @@ const ActionButtons = ({ onGameEnd, onRestart }) => {
         <div className="action-buttons" role="group" aria-label="Aksiyon butonları" style={{
             display: 'flex',
             justifyContent: 'center',
-            gap: 'var(--spacing-md)',
+            gap: 'clamp(var(--spacing-md), 3vw, var(--spacing-xl))',
             flexWrap: 'wrap',
             animation: 'fadeInUp 0.8s ease-out 0.4s',
             animationFillMode: 'backwards'
@@ -378,13 +379,13 @@ const ScoreAnalysisScreen = ({ finalScore, userAnswers, onGameEnd, onRestart, ge
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            padding: 'var(--spacing-md)',
+            padding: 'var(--spacing-xl) var(--spacing-lg)',
             boxSizing: 'border-box',
             overflowY: 'auto',
             animation: 'fadeIn 0.5s ease-out'
         }}>
             <div style={{
-                maxWidth: '1000px',
+                maxWidth: '1600px',
                 width: '100%',
                 padding: 'var(--spacing-lg) 0'
             }}>
@@ -419,8 +420,19 @@ const ScoreAnalysisScreen = ({ finalScore, userAnswers, onGameEnd, onRestart, ge
                     }
                 }
                 
+                /* Tablet and smaller screens */
+                @media (max-width: 1200px) {
+                    .answer-item {
+                        grid-template-columns: auto 1fr auto !important;
+                    }
+                }
+                
                 /* Mobile responsive adjustments (Task 10) */
                 @media (max-width: 768px) {
+                    /* Reset grid to single column on mobile */
+                    div[role="list"] {
+                        grid-template-columns: 1fr !important;
+                    }
                     /* Reduce 3D effects on mobile for performance */
                     .score-card-3d,
                     .answer-review-3d {
@@ -454,6 +466,11 @@ const ScoreAnalysisScreen = ({ finalScore, userAnswers, onGameEnd, onRestart, ge
                     .score-details > div {
                         transform: translateZ(5px) !important;
                         box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3) !important;
+                    }
+                    
+                    /* Reset answer list to single column on mobile */
+                    div[role="list"] {
+                        grid-template-columns: 1fr !important;
                     }
                     
                     /* Simplify answer item layout for mobile */
