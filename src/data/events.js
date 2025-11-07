@@ -7,14 +7,14 @@ export const GAME_EVENTS = {
             introVideoFile: 'new.mp4', 
            
             eventTitle: 'Milli Mücadelenin Başlangıcı: Anadolu\'ya Geçiş Kararı',
-            eventContext: 'İstanbul işgal altında. Mustafa Kemal Paşa sizi Anadolu\'ya çağırıyor. Ne yapacaksınız?',
+            eventContext: '1  Ocak 1921. Eskişehir’in doğusunda sisli bir sabah. Yeni kurulmuş ordunun morali kırılmak üzere. Komutan olarak biliyorsun: Bu karar, sadece bugünü değil, ordunun geleceğini belirleyecek. Ne yapardın?',
             options: [
                 {
-                    text: 'Seçenek : İstanbul\'da Kalıp Diploması Yürütmek. Padişah\'ın yanında kalıp durumu içeriden çözmeyi denemek.',
+                    text: 'Seçenek : "Birlikleri geri çek, yeniden düzenle. “Kaybettiğin bir mevziyi geri alırsın, ama dağılan bir orduyu yeniden kuramazsın.” ',
                     isCorrect: false,
                 },
                 {
-                    text: 'Seçenek : Anadolu\'ya Geçerek Direnişi Örgütlemek. Tüm rütbeleri bırakıp Milli Mücadele\'ye katılmak.',
+                    text: 'Seçenek :" Mevzide kal, diren, orduya güven ver. “Cesaret bulaşıcıdır; geri adım atmazsan asker de atmaz.”',
                     isCorrect: true,
                 },
             ],
