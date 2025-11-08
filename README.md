@@ -53,5 +53,6 @@ Kısıtlı süreden dolayı bazı videolar ve sorularda problem yaşanmıştır 
 ##👥 Geliştiriciler
 
 Aysun Balcı 
+
 Zehra İpek
 
