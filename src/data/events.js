@@ -19,8 +19,8 @@ export const GAME_EVENTS = {
                     isCorrect: true,
                 },
             ],
-            correctOutcomeVideo: 'deneme.mp4', 
-            incorrectOutcomeVideo: 'new.mp4', 
+            correctOutcomeVideo: '1a.mp4', 
+            incorrectOutcomeVideo: '1b.mp4', 
         },
         
         // --- EVENT 2: NORMAL QUIZ SORUSU ---
