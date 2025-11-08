@@ -50,7 +50,8 @@ Proje, modern bir **Vite + React** mimarisi kullanılarak geliştirilmiştir.
 ## Son Bilgilendirmeler
 Kısıtlı süreden dolayı bazı videolar ve sorularda problem yaşanmıştır ve bazı eksiklikler mevcuttur.Eklenen videolar ve sorular az olmasına rağmen genel işleyiş anlatılmak amaçlanmıştır.
 
-##Geliştirici
+##👥 Geliştiriciler
+
 Aysun Balcı 
 Zehra İpek
 
