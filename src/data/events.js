@@ -26,7 +26,7 @@ export const GAME_EVENTS = {
         // --- EVENT 2: NORMAL QUIZ SORUSU ---
         {
             id: 'inonu-2-birinci-inonu',
-            introVideoFile: 'new.mp4',
+            introVideoFile: '2intro.mp4',
             questionType: 'quiz', // Normal quiz sorusu
             
             eventTitle: 'Lozan Müzakereleri',
@@ -41,14 +41,14 @@ export const GAME_EVENTS = {
                     isCorrect: true,
                 },
             ],
-            correctOutcomeVideo: 'new.mp4', 
-            incorrectOutcomeVideo: 'new.mp4', 
+            correctOutcomeVideo: '2a.mp4', 
+            incorrectOutcomeVideo: '2b.mp4', 
         },
 
         // --- EVENT 3: KARAKTER ANALİZİ SORUSU ---
         {
             id: 'inonu-3-character-analysis',
-            introVideoFile: 'new.mp4',
+            introVideoFile: 'intro3.mp4',
             questionType: 'character', // Karakter analizi sorusu
             
             eventTitle: 'Liderlik Tarzın',
@@ -63,8 +63,8 @@ export const GAME_EVENTS = {
                     characterTrait: 'strategic', // Karakter özelliği
                 },
             ],
-            correctOutcomeVideo: 'final.mp4',
-            incorrectOutcomeVideo: 'soguk.mp4',
+            correctOutcomeVideo: '3a.mp4',
+            incorrectOutcomeVideo: '3b.mp4',
         },
     ],
     
