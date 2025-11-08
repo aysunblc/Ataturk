@@ -15,7 +15,7 @@ Proje, "Yankı 10" adlı web tabanlı bir simülasyon oyunu olarak tasarlanmış
 * **Duyarlı Tasarım (Responsive):** React tabanlı arayüz, hem masaüstü tarayıcılarda hem de mobil cihazlarda kusursuz bir oyun deneyimi sunar.
 
 ## 📸 Ekran Görüntüleri ve Proje Demosu
-[https://drive.google.com/file/d/1IYqopLJGazzhb89Jr381hjKmwjIWCy7x/view?usp=sharing](https://drive.google.com/file/d/1IYqopLJGazzhb89Jr381hjKmwjIWCy7x/view?usp=sharing)
+ https://drive.google.com/file/d/1IYqopLJGazzhb89Jr381hjKmwjIWCy7x/view?usp=sharing
 
  
 
