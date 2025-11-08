@@ -171,6 +171,7 @@ const Game = ({ selectedCharacter, onGameEnd, onRecordResult, onSaveUserAnswer, 
     const [showingIntro, setShowingIntro] = useState(true);
     const [videoFinished, setVideoFinished] = useState(false);
     const [shuffledOptions, setShuffledOptions] = useState([]);
+    const [showingAdditionalVideo, setShowingAdditionalVideo] = useState(false);
 
     const audioRef = useRef(null);
     const currentEvent = events[currentEventIndex];
@@ -220,6 +221,7 @@ const Game = ({ selectedCharacter, onGameEnd, onRecordResult, onSaveUserAnswer, 
         setIsAnimatingOut(false);
         setVideoFinished(false);
         setShowingIntro(true);
+        setShowingAdditionalVideo(false);
 
         document.body.style.overflow = 'auto';
 
@@ -304,9 +306,18 @@ const Game = ({ selectedCharacter, onGameEnd, onRecordResult, onSaveUserAnswer, 
             audioRef.current.currentTime = 0;
         }
 
-        const videoYolu = isCharacterQuestion
-            ? currentEvent.correctOutcomeVideo
-            : (option.isCorrect ? currentEvent.correctOutcomeVideo : currentEvent.incorrectOutcomeVideo);
+        // Video yolunu belirle
+        let videoYolu;
+        if (isCharacterQuestion && option.outcomeVideo) {
+            // Karakter sorusunda seçeneğe özel video varsa onu kullan
+            videoYolu = option.outcomeVideo;
+        } else if (isCharacterQuestion) {
+            // Karakter sorusunda eski mantık
+            videoYolu = currentEvent.correctOutcomeVideo;
+        } else {
+            // Normal quiz sorusu
+            videoYolu = option.isCorrect ? currentEvent.correctOutcomeVideo : currentEvent.incorrectOutcomeVideo;
+        }
 
         if (!videoYolu) {
             console.error("!!! ÖNEMLİ HATA !!!");
@@ -356,13 +367,37 @@ const Game = ({ selectedCharacter, onGameEnd, onRecordResult, onSaveUserAnswer, 
     const handleVideoEnded = () => {
         setVideoFinished(true);
         
+        // Eğer bu soruda ek video varsa ve henüz gösterilmediyse
+        if (currentEvent.hasAdditionalVideo && !showingAdditionalVideo && selectedOption) {
+            console.log('📹 Ek video oynatılacak');
+            setTimeout(() => {
+                setShowingAdditionalVideo(true);
+                setVideoFinished(false);
+            }, 1000);
+        } else {
+            // Normal akış - sonraki soruya geç
+            setTimeout(() => {
+                handleNextEvent();
+            }, 1500);
+        }
+    };
+    
+    const handleAdditionalVideoEnded = () => {
+        console.log('📹 Ek video bitti, sonraki soruya geçiliyor');
+        setVideoFinished(true);
         setTimeout(() => {
             handleNextEvent();
         }, 1500);
     };
 
+    // Outcome video source'u belirle
     const outcomeVideoSource = showOutcome && selectedOption
-        ? (selectedOption.isCorrect ? currentEvent.correctOutcomeVideo : currentEvent.incorrectOutcomeVideo)
+        ? (selectedOption.outcomeVideo || (selectedOption.isCorrect ? currentEvent.correctOutcomeVideo : currentEvent.incorrectOutcomeVideo))
+        : null;
+    
+    // Ek video source'u belirle
+    const additionalVideoSource = showingAdditionalVideo && selectedOption && selectedOption.finalVideo
+        ? selectedOption.finalVideo
         : null;
 
     if (!currentEvent) {
@@ -517,13 +552,23 @@ const Game = ({ selectedCharacter, onGameEnd, onRecordResult, onSaveUserAnswer, 
                 />
             )}
 
-            {outcomeVideoSource && (
+            {outcomeVideoSource && !showingAdditionalVideo && (
                 <OutcomeVideoPlayer
                     videoSrc={`/videos/${outcomeVideoSource}`}
                     videoKey={outcomeVideoSource}
                     videoFinished={videoFinished}
                     onEnded={handleVideoEnded}
                     onError={(e) => handleVideoError(e, 'outcome')}
+                />
+            )}
+            
+            {additionalVideoSource && showingAdditionalVideo && (
+                <OutcomeVideoPlayer
+                    videoSrc={`/videos/${additionalVideoSource}`}
+                    videoKey={additionalVideoSource}
+                    videoFinished={videoFinished}
+                    onEnded={handleAdditionalVideoEnded}
+                    onError={(e) => handleVideoError(e, 'additional')}
                 />
             )}
 

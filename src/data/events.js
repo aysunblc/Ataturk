@@ -19,8 +19,8 @@ export const GAME_EVENTS = {
                     isCorrect: true,
                 },
             ],
-            correctOutcomeVideo: '1a.mp4', 
-            incorrectOutcomeVideo: '1b.mp4', 
+            correctOutcomeVideo: '1b.mp4', 
+            incorrectOutcomeVideo: '1a.mp4', 
         },
         
         // --- EVENT 2: NORMAL QUIZ SORUSU ---
@@ -41,8 +41,8 @@ export const GAME_EVENTS = {
                     isCorrect: true,
                 },
             ],
-            correctOutcomeVideo: '2a.mp4', 
-            incorrectOutcomeVideo: '2b.mp4', 
+            correctOutcomeVideo: '2b.mp4', 
+            incorrectOutcomeVideo: '2a.mp4', 
         },
 
         // --- EVENT 3: KARAKTER ANALİZİ SORUSU ---
@@ -57,14 +57,17 @@ export const GAME_EVENTS = {
                 {
                     text: 'Seçenek: Cesur, risk alarak öne çıkan lider',
                     characterTrait: 'bold', // Karakter özelliği
+                    outcomeVideo: '3a.mp4', // Bu seçeneğe özel outcome video
+                    finalVideo: 'final.mp4', // Bu seçeneğe özel final video
                 },
                 {
                     text: 'Seçenek: Soğukkanlı, plan yaparak ilerleyen lider',
                     characterTrait: 'strategic', // Karakter özelliği
+                    outcomeVideo: '3b.mp4', // Bu seçeneğe özel outcome video
+                    finalVideo: 'soguk.mp4', // Bu seçeneğe özel final video
                 },
             ],
-            correctOutcomeVideo: '3a.mp4',
-            incorrectOutcomeVideo: '3b.mp4',
+            hasAdditionalVideo: true, // Bu soru için ek video var
         },
     ],
     
